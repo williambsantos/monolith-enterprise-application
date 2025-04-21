@@ -7,7 +7,7 @@ package com.mycompany.entapp.snowman;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.webapp.WebAppContext;
 
 import java.net.URL;
 
@@ -29,7 +29,7 @@ public class EnterpriseApplication {
 
         WebAppContext webAppContext = new WebAppContext();
         webAppContext.setDescriptor(getResource("webapp/WEB-INF/web.xml"));
-        webAppContext.setResourceBase(getResource("webapp"));
+        webAppContext.setWar(getResource("webapp"));
         webAppContext.setContextPath("/");
         webAppContext.setParentLoaderPriority(true);
 

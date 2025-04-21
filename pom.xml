@@ -30,7 +30,7 @@
         <slf4j.api.version>2.0.9</slf4j.api.version>
         <hibernate.core.version>6.4.4.Final</hibernate.core.version>
         <joda.time.version>2.12.5</joda.time.version>
-        <ehcache.version>3.10.8</ehcache.version>
+        <ehcache.version>3.10.13</ehcache.version>
         <activemq-spring.version>6.1.3</activemq-spring.version>
         <quartz.version>2.5.0-rc1</quartz.version>
         <jakarta.annotation.version>2.1.1</jakarta.annotation.version>
