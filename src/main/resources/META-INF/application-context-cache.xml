@@ -11,7 +11,7 @@
     <bean id="cacheManager" class="org.springframework.cache.jcache.JCacheCacheManager">
         <property name="cacheManager">
             <bean class="org.springframework.cache.jcache.JCacheManagerFactoryBean">
-                <property name="configLocation" value="classpath:webapp/WEB-INF/ehcache.xml"/>
+                <property name="cacheManagerUri" value="classpath:webapp/WEB-INF/ehcache.xml"/>
             </bean>
         </property>
     </bean>
