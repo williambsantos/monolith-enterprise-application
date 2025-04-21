@@ -31,7 +31,7 @@ public class EnterpriseApplication {
 
         WebAppContext webAppContext = new WebAppContext();
         webAppContext.setDescriptor(getResource("webapp/WEB-INF/web.xml"));
-        webAppContext.setResourceBase(getResource("webapp"));
+        webAppContext.setWar(getResource("webapp"));
         webAppContext.setContextPath("/");
         webAppContext.setParentLoaderPriority(true);
 

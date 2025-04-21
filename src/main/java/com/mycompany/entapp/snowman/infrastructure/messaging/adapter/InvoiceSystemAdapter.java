@@ -31,16 +31,17 @@ public class InvoiceSystemAdapter implements InvoiceSystemPort {
 
     @Override
     public void sendProjectInfo(final ClientDTO clientDTO) {
-        LOGGER.info("Sending client info to Invoice System: {}", clientDTO);
+        LOGGER.info("Sending Project Info {} to external Invoice system", clientDTO);
+
         jmsTemplate.send(new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
                 ObjectMessage objectMessage = session.createObjectMessage(clientDTO);
-                // EIP - correlate at the other end
-                objectMessage.setJMSCorrelationID("ClientID-" + clientDTO.getClientId());
+                objectMessage.setJMSType("Invoice-XML-Format");
+                objectMessage.setJMSMessageID("345-7676-" + clientDTO.getClientId());
+                objectMessage.setJMSPriority(7);
                 return objectMessage;
             }
         });
     }
-
 }
