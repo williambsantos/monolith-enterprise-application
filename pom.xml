@@ -13,9 +13,12 @@
         <junit.version>5.10.0</junit.version>
         <java.version>17</java.version>
         <mockito.version>5.8.0</mockito.version>
-        <jetty.version>12.0.5</jetty.version>
+        <jetty.version>12.0.19</jetty.version>
+        <jetty-server>12.0.19</jetty-server>
+        <jetty-servlet>11.0.25</jetty-servlet>
+        <jetty-webapp>11.0.25</jetty-webapp>
         <bean.validation.version>3.0.2</bean.validation.version>
-        <expression.language.version>5.0.0</expression.language.version>
+        <expression.language.version>4.0.0</expression.language.version>
         <jakarta.servlet.version>6.0.0</jakarta.servlet.version>
         <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
         <apache.commons-lang3.version>3.14.0</apache.commons-lang3.version>
@@ -126,19 +129,19 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>${jetty.version}</version>
+            <version>${jetty-server}</version>
         </dependency>
 
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
-            <version>${jetty.version}</version>
+            <version>${jetty-servlet}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.eclipse.jetty.ee10</groupId>
-            <artifactId>jetty-ee10-webapp</artifactId>
-            <version>${jetty.version}</version>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty-webapp}</version>
         </dependency>
 
         <dependency>
@@ -272,11 +275,7 @@
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2</url>
         </repository>
-        <repository>
-            <id>spring-release</id>
-            <url>https://repo.spring.io/release</url>
-        </repository>
-    </repositories>
+            </repositories>
 
     <build>
         <plugins>
