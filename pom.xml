@@ -23,7 +23,7 @@
         <hyperSql.version>2.7.3</hyperSql.version>
         <h2.version>2.3.232</h2.version>
         <derby.version>10.17.1.0</derby.version>
-        <mysql.version>9.0.0</mysql.version>
+        <mysql.version>9.2.0</mysql.version>
         <slf4j.api.version>2.0.9</slf4j.api.version>
         <hibernate.core.version>6.4.4.Final</hibernate.core.version>
         <joda.time.version>2.12.5</joda.time.version>
@@ -143,6 +143,37 @@
             <version>${jetty.version}</version>
         </dependency>
 
+        <!-- JSP Support for Jetty -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-annotations</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>jakarta.servlet.jsp</groupId>
+            <artifactId>jakarta.servlet.jsp-api</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -206,24 +237,25 @@
             <version>${joda.time.version}</version>
         </dependency>
 
+        <!-- EhCache dependencies - temporarily commented out 
         <dependency>
             <groupId>org.ehcache</groupId>
             <artifactId>ehcache</artifactId>
             <version>${ehcache.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.xml.bind</groupId>
-                    <artifactId>jaxb-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jaxb</groupId>
-                    <artifactId>jaxb-runtime</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jaxb</groupId>
-                    <artifactId>jaxb-core</artifactId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache-transactions</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
+        -->
+
+        <!-- Cache API (JSR-107) without EhCache implementation -->
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+            <version>1.1.0</version>
         </dependency>
 
         <!-- Support for Ehcache and others -->
@@ -301,6 +333,19 @@
             <version>${jakarta.xml.bind.version}</version>
         </dependency>
         
+        <!-- Legacy JAXB API - needed for some libraries that still use javax.xml.bind -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
         <!-- Jakarta Activation API - replacement for javax.activation -->
         <dependency>
             <groupId>jakarta.activation</groupId>

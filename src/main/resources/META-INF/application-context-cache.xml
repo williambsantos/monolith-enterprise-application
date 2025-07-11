@@ -7,13 +7,13 @@
 
     <cache:annotation-driven/>
 
-    <!-- Usando JCache (JSR-107) com implementação Ehcache 3 para Spring 6 -->
+    <!-- Using JCache (JSR-107) with Ehcache 3 for Spring 6 -->
     <bean id="cacheManager" class="org.springframework.cache.jcache.JCacheCacheManager">
-        <property name="cacheManager">
-            <bean class="org.springframework.cache.jcache.JCacheManagerFactoryBean">
-                <property name="cacheManagerUri" value="classpath:webapp/WEB-INF/ehcache.xml"/>
-            </bean>
-        </property>
+        <property name="cacheManager" ref="ehcacheCacheManager"/>
+    </bean>
+    
+    <bean id="ehcacheCacheManager" class="org.springframework.cache.jcache.JCacheManagerFactoryBean">
+        <property name="cacheManagerUri" value="classpath:META-INF/ehcache.xml"/>
     </bean>
 
 </beans>
